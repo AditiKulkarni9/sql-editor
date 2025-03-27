@@ -1,0 +1,473 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  overflow: hidden;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+
+/* Narrow this to QuerySelector component */
+.sidebar > ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar > ul > li {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background 0.2s;
+}
+
+.sidebar > ul > li:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* Main Layout */
+.main-panel {
+  flex: 1;
+  padding: 30px;
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* Editor */
+.editor-header h2 {
+  margin-bottom: 0;
+}
+
+.editor-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative; /* 👈 important */
+  flex-shrink: 0;
+  margin-bottom: 10px;
+
+}
+
+.editor-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.editor-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.editor-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.run-btn {
+  color: #2563eb;
+}
+
+.save-btn {
+  color: #10b981;
+}
+
+.clear-btn {
+  color: #ef4444;
+}
+
+/* CodeMirror adjustments */
+.cm-theme {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.cm-editor {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Output Section */
+.output-section {
+  margin-top: 24px;
+}
+
+.output-header {
+  position: sticky;
+  top: 0;
+  background: #f7f9fc;
+  z-index: 2;
+  padding-bottom: 10px;
+}
+
+
+.output-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 16px; 
+}
+
+
+.output-card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 300px;
+  overflow-y: auto;
+  color: #111;
+  font-size: 14px;
+}
+
+.raw-json {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #222;
+}
+
+.app-container.dark .raw-json {
+  color: #f1f1f1;
+  background-color: #1a1a1a;
+}
+
+
+.stats-view p {
+  margin: 8px 0;
+  color: #333;
+}
+
+/* Tabs */
+.tab-bar {
+  display: flex;
+  background-color: #eaeaea;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tab-bar button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background-color: #eaeaea;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tab-bar button.active {
+  background-color: #ccc;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Export Dropdown */
+.export-icon-wrapper {
+  position: relative;
+}
+
+.export-icon {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.export-dropdown {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.export-dropdown button {
+  display: block;
+  width: 150px;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+}
+
+.export-dropdown button:hover {
+  background-color: #f5f5f5;
+}
+
+
+.db-name {
+  font-weight: bold;
+  cursor: pointer;
+  padding: 6px 8px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.table-list {
+  list-style: none;
+  padding-left: 16px;
+  margin-top: 4px;
+}
+
+.table-name {
+  font-size: 13px;
+  padding: 4px 8px;
+  color: #333;
+}
+
+.top-right-toggle {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 999;
+}
+
+.toggle-btn {
+  padding: 8px 14px;
+  background-color: #e2e8f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.toggle-btn:hover {
+  background-color: #cbd5e1;
+}
+
+/* App Container */
+.app-container.dark {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+/* Sidebar */
+.app-container.dark .sidebar {
+  background-color: #1f1f1f;
+  color: #eee;
+}
+
+/* Editor Card */
+.app-container.dark .editor-card {
+  background-color: #2b2b2b;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+/* Output Card */
+.app-container.dark .output-card {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+/* Sidebar Elements */
+.app-container.dark .query-card {
+  background-color: #333;
+  color: #eee;
+  border: 1px solid #444;
+}
+.app-container.dark .query-card:hover {
+  background-color: #444;
+  border-color: #2563eb;
+}
+.app-container.dark .query-snippet {
+  color: #aaa;
+}
+
+/* Headings */
+.app-container.dark .editor-header h2,
+.app-container.dark .editor-subtitle,
+.app-container.dark .output-heading,
+.app-container.dark .sidebar-title {
+  color: #f0f0f0;
+}
+
+.output-heading-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Adds space between "Output" and the timer */
+}
+
+
+/* Subtle border fixes */
+.app-container.dark .editor-subtitle {
+  border-bottom: 1px solid #555;
+}
+
+/* Search Inputs */
+.app-container.dark .search-input {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+.app-container.dark .search-input::placeholder {
+  color: #888;
+}
+
+/* Output Table */
+.app-container.dark .output-card th {
+  background-color: #2e2e2e;
+  color: #eee;
+}
+.app-container.dark .output-card td {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+.output-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color, #111);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Tabs */
+.app-container.dark .tab-bar {
+  background-color: #2a2a2a;
+}
+.app-container.dark .tab-bar button {
+  background-color: #2a2a2a;
+  color: #ccc;
+}
+.app-container.dark .tab-bar button.active {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Toggle Button */
+.app-container.dark .toggle-btn {
+  background-color: #444;
+  color: #f1f1f1;
+}
+.app-container.dark .toggle-btn:hover {
+  background-color: #555;
+}
+
+/* Clear button (trash icon) */
+.app-container.dark .clear-history-btn {
+  color: #ef4444;
+}
+.app-container.dark .clear-history-btn:hover {
+  color: #f87171;
+}
+.app-container.dark .main-panel {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+.app-container.dark .output-header {
+  background-color: #1e1e1e;
+}
+.app-container.dark .editor-header h2 {
+  color: #f1f1f1;
+}
+.theme-toggle-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.theme-toggle-icon.dark {
+  transform: rotate(180deg);
+  filter: brightness(1.2);
+}
+
+.theme-toggle-icon.light {
+  filter: brightness(0.9);
+}
+.execution-time {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary, #555);
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dark .execution-time {
+  background-color: #2d3748;
+  color: #eee;
+}
+
+
+
+
+
+

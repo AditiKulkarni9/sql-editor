@@ -1,0 +1,45 @@
+import { useState } from 'react';
+import './QuerySelector.css';
+import listIcon from "../../assets/list.svg"
+
+function QuerySelector({ queries, onChange }) {
+  const [search, setSearch] = useState('');
+
+  const filteredQueries = queries.filter((q) =>
+    q.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div className="query-selector">
+      <div className="query-header">
+        <h1 className="sidebar-title">
+          <img src={listIcon} alt="Query List Icon" className="query-icon" />
+          Queries
+        </h1>
+        <div className="search-wrapper">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="search-input"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className="query-scrollable">
+        <ul className="query-list">
+          {filteredQueries.map((q) => (
+            <li key={q.id} className="query-card" onClick={() => onChange(q.id)}>
+              <div className="query-title">{q.title}</div>
+              <div className="query-snippet">{q.query.slice(0, 40)}...</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+  );
+}
+
+export default QuerySelector;
