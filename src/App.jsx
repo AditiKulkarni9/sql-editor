@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import QuerySelector from './components/Query/QuerySelector';
 import QueryEditor from './components/Query/QueryEditor';
 import ResultTable from './components/Results/ResultTable';
@@ -8,6 +8,8 @@ import MetadataView from './components/Results/MetadataView';
 import QueryHistory from './components/History/QueryHistory';
 import LightIcon from './assets/light.svg';
 import DarkIcon from './assets/dark.svg'
+import { FaMagic } from 'react-icons/fa';
+import SqlCopilot from './components/Copilot/SqlCopilot';
 import './App.css';
 
 
@@ -21,6 +23,7 @@ function App() {
   const [clearEditor, setClearEditor] = useState(false);
   const [showExportMenu, setShowExportMenu] = useState(false);
   const [executionTime, setExecutionTime] = useState(null);
+  const [showCopilot, setShowCopilot] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
@@ -44,6 +47,24 @@ function App() {
   useEffect(() => {
     setQueryText(queries[selectedQueryId].query);
   }, [selectedQueryId]);
+
+  const exportRef = useRef(null);
+
+useEffect(() => {
+  function handleClickOutside(event) {
+    if (exportRef.current && !exportRef.current.contains(event.target)) {
+      setShowExportMenu(false);
+    }
+  }
+
+  if (showExportMenu) {
+    document.addEventListener("mousedown", handleClickOutside);
+  }
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, [showExportMenu]);
 
   const addToQueryHistory = (query) => {
     setQueryHistory((prevHistory) => {
@@ -85,6 +106,7 @@ function App() {
   };
 
   const executeQuery = async () => {
+    setShowCopilot(false);
     const startTime = performance.now();
     addToQueryHistory(queryText);
   
@@ -140,6 +162,14 @@ function App() {
           <div className="editor-card-header">
             <h3 className="editor-subtitle">Query Editor</h3>
             <div className="editor-icons">
+            <button 
+                className="icon-btn generate-btn" 
+                title="Generate with AI" 
+                onClick={() => setShowCopilot(prev => !prev)}
+                style={{ color: darkMode ? '#fff' : '#333' }}
+              >
+                <FaMagic />
+              </button>
               <button 
               className="icon-btn run-btn" 
               title="Run" 
@@ -152,7 +182,13 @@ function App() {
               }}>
                 <FaSave />
               </button>
-              <button className="icon-btn clear-btn" title="Clear" onClick={() => setClearEditor(prev => !prev)}>
+              <button 
+              className="icon-btn clear-btn" 
+              title="Clear" 
+              onClick={() => {
+                setClearEditor(prev => !prev)
+                setShowCopilot(false);
+              }}>
                 <FaTrash />
               </button>
             </div>
@@ -165,6 +201,14 @@ function App() {
             darkMode={darkMode}
           />
         </div>
+        {showCopilot && (
+          <SqlCopilot 
+          darkMode={darkMode}
+          onGenerate={(sql) => {
+            setQueryText(sql);
+            setShowCopilot(false);
+          }} />
+        )}
 
         <div className="output-section">
           <div className="output-header">
@@ -175,7 +219,7 @@ function App() {
                   <span className="execution-time">⏱ {executionTime} ms</span>
                 )}
               </div>
-              <div className="export-icon-wrapper">
+              <div className="export-icon-wrapper" ref = {exportRef}>
                 <button
                   className="icon-btn export-icon"
                   onClick={() => setShowExportMenu(!showExportMenu)}

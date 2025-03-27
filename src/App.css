@@ -467,6 +467,25 @@ body.dark {
   background-color: #2d3748;
   color: #eee;
 }
+.copilot-container {
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.copilot-container textarea {
+  width: 100%;
+  padding: 0.5rem;
+  resize: vertical;
+  font-family: monospace;
+}
+
+.copilot-container button {
+  margin-top: 0.5rem;
+  
+}
 
 
 
