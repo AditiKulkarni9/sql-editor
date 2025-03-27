@@ -162,7 +162,7 @@ function App() {
             query={queryText}
             onChange={(text) => setQueryText(text)}
             clearTrigger={clearEditor}
-            
+            darkMode={darkMode}
           />
         </div>
 

@@ -5,8 +5,9 @@ import { sql } from '@codemirror/lang-sql';
 import './QuerySelector.css';
 import { dracula } from '@uiw/codemirror-theme-dracula'; // optional alt
 import { githubLight } from '@uiw/codemirror-theme-github';
+import { oneDark } from '@codemirror/theme-one-dark';
 
-function QueryEditor({ query, onChange, clearTrigger, onTriggerHistory }) {
+function QueryEditor({ query, onChange, clearTrigger, darkMode }) {
   const [value, setValue] = useState(query);
 
   useEffect(() => {
@@ -29,6 +30,7 @@ function QueryEditor({ query, onChange, clearTrigger, onTriggerHistory }) {
         value={value}
         height="200px"
         extensions={[sql()]}
+        theme={darkMode ? oneDark : githubLight}
         onChange={handleChange}
       />
     </div>
