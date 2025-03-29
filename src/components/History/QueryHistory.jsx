@@ -16,7 +16,7 @@ function QueryHistory({ queryHistory, onSelect }) {
     localStorage.removeItem('queryHistory');
     onSelect(''); // Optionally clear the editor
     setSearch('');
-    window.location.reload(); // reload to update state from App (or lift state up if preferred)
+    window.location.reload(); // reload to update state from App
   };
   
 
@@ -41,8 +41,8 @@ function QueryHistory({ queryHistory, onSelect }) {
         </div>
       </div>
 
-      <div className="query-scrollable">
-        <div className="query-history-list">
+      <div className="query-scrollable" tabIndex="0" role="region" aria-label="Query history scrollable region">
+        <div className="query-history-list" tabIndex="0">
           {filtered.map((query, index) => (
             <div key={index} className="query-card" onClick={() => onSelect(query)}>
               <div className="query-title">{query.slice(0, 50)}...</div>

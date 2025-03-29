@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Suspense, useState, useEffect, useRef } from 'react';
 import QuerySelector from './components/Query/QuerySelector';
 import QueryEditor from './components/Query/QueryEditor';
 import ResultTable from './components/Results/ResultTable';
@@ -9,7 +9,6 @@ import QueryHistory from './components/History/QueryHistory';
 import LightIcon from './assets/light.svg';
 import DarkIcon from './assets/dark.svg'
 import { FaMagic } from 'react-icons/fa';
-import SqlCopilot from './components/Copilot/SqlCopilot';
 import './App.css';
 
 
@@ -27,12 +26,14 @@ function App() {
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark";
   });
+  const SqlCopilot = React.lazy(() => import('./components/Copilot/SqlCopilot'));
   
   const [queryHistory, setQueryHistory] = useState(() => {
     const savedHistory = localStorage.getItem('queryHistory');
     return savedHistory ? JSON.parse(savedHistory) : [];
   });
 
+  
   useEffect(() => {
     document.body.classList.toggle('dark', darkMode);
     localStorage.setItem("theme", darkMode ? "dark" : "light");
@@ -68,7 +69,7 @@ useEffect(() => {
 
   const addToQueryHistory = (query) => {
     setQueryHistory((prevHistory) => {
-      // avoid duplicates, but allow similar structure if needed
+      // avoiding duplicates
       if (!prevHistory.includes(query)) {
         return [query, ...prevHistory];
       }
@@ -160,7 +161,7 @@ useEffect(() => {
 
         <div className="editor-card">
           <div className="editor-card-header">
-            <h3 className="editor-subtitle">Query Editor</h3>
+            <h3 id="query-editor-label" className="editor-subtitle" >Query Editor</h3>
             <div className="editor-icons">
             <button 
                 className="icon-btn generate-btn" 
@@ -202,13 +203,17 @@ useEffect(() => {
           />
         </div>
         {showCopilot && (
-          <SqlCopilot 
-          darkMode={darkMode}
-          onGenerate={(sql) => {
-            setQueryText(sql);
-            setShowCopilot(false);
-          }} />
+          <Suspense fallback={<div style={{ padding: '1rem' }}>Loading Copilot...</div>}>
+            <SqlCopilot 
+              darkMode={darkMode}
+              onGenerate={(sql) => {
+                setQueryText(sql);
+                setShowCopilot(false);
+              }} 
+            />
+          </Suspense>
         )}
+
 
         <div className="output-section">
           <div className="output-header">
@@ -244,7 +249,7 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className="output-card">
+          <div className="output-card" tabIndex="0" role="region" aria-label="Query output region">
             {loading ? (
               <p>Loading...</p>
             ) : (

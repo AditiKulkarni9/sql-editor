@@ -32,8 +32,6 @@ body.dark {
 }
 
 
-
-/* Narrow this to QuerySelector component */
 .sidebar > ul {
   list-style: none;
   padding: 0;
@@ -51,8 +49,6 @@ body.dark {
   background-color: #f0f0f0;
 }
 
-
-/* Main Layout */
 .main-panel {
   flex: 1;
   padding: 30px;
@@ -65,7 +61,6 @@ body.dark {
   box-sizing: border-box;
 }
 
-/* Editor */
 .editor-header h2 {
   margin: 0;
   margin-bottom: 0;
@@ -77,7 +72,7 @@ body.dark {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  position: relative; /* 👈 important */
+  position: relative; 
   flex-shrink: 0;
   margin-bottom: 10px;
   margin-top: 12px;
@@ -135,7 +130,6 @@ body.dark {
   color: #ef4444;
 }
 
-/* CodeMirror adjustments */
 .cm-theme {
   margin-top: 0 !important;
   padding-top: 0 !important;
@@ -146,7 +140,6 @@ body.dark {
   padding-top: 0 !important;
 }
 
-/* Output Section */
 .output-section {
   margin-top: 24px;
 }
@@ -197,7 +190,6 @@ body.dark {
   color: #333;
 }
 
-/* Tabs */
 .tab-bar {
   display: flex;
   background-color: #eaeaea;
@@ -222,7 +214,6 @@ body.dark {
   color: #111;
 }
 
-/* Export Dropdown */
 .export-icon-wrapper {
   position: relative;
 }
@@ -309,33 +300,28 @@ body.dark {
   background-color: #cbd5e1;
 }
 
-/* App Container */
 .app-container.dark {
   background-color: #1e1e1e;
   color: #f1f1f1;
 }
 
-/* Sidebar */
 .app-container.dark .sidebar {
   background-color: #1f1f1f;
   color: #eee;
 }
 
-/* Editor Card */
 .app-container.dark .editor-card {
   background-color: #2b2b2b;
   color: #f1f1f1;
   border: 1px solid #444;
 }
 
-/* Output Card */
 .app-container.dark .output-card {
   background-color: #1e1e1e;
   color: #f1f1f1;
   border: 1px solid #444;
 }
 
-/* Sidebar Elements */
 .app-container.dark .query-card {
   background-color: #333;
   color: #eee;
@@ -349,7 +335,6 @@ body.dark {
   color: #aaa;
 }
 
-/* Headings */
 .app-container.dark .editor-header h2,
 .app-container.dark .editor-subtitle,
 .app-container.dark .output-heading,
@@ -360,16 +345,13 @@ body.dark {
 .output-heading-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px; /* Adds space between "Output" and the timer */
+  gap: 12px; 
 }
 
-
-/* Subtle border fixes */
 .app-container.dark .editor-subtitle {
   border-bottom: 1px solid #555;
 }
 
-/* Search Inputs */
 .app-container.dark .search-input {
   background-color: #2a2a2a;
   color: #fff;
@@ -379,7 +361,6 @@ body.dark {
   color: #888;
 }
 
-/* Output Table */
 .app-container.dark .output-card th {
   background-color: #2e2e2e;
   color: #eee;
@@ -398,7 +379,6 @@ body.dark {
   gap: 12px;
 }
 
-/* Tabs */
 .app-container.dark .tab-bar {
   background-color: #2a2a2a;
 }
@@ -411,7 +391,6 @@ body.dark {
   color: #fff;
 }
 
-/* Toggle Button */
 .app-container.dark .toggle-btn {
   background-color: #444;
   color: #f1f1f1;
@@ -420,7 +399,6 @@ body.dark {
   background-color: #555;
 }
 
-/* Clear button (trash icon) */
 .app-container.dark .clear-history-btn {
   color: #ef4444;
 }

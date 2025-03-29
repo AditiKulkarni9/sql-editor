@@ -1,4 +1,3 @@
-// src/components/QueryEditor.jsx
 import { useEffect, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { sql } from '@codemirror/lang-sql';
@@ -32,6 +31,9 @@ function QueryEditor({ query, onChange, clearTrigger, darkMode }) {
         extensions={[sql()]}
         theme={darkMode ? oneDark : githubLight}
         onChange={handleChange}
+        aria-label="SQL query input"
+        aria-labelledby="query-editor-label"
+        role="textbox"
       />
     </div>
   );
