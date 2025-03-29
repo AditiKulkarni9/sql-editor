@@ -67,6 +67,7 @@ body.dark {
 
 /* Editor */
 .editor-header h2 {
+  margin: 0;
   margin-bottom: 0;
 }
 
@@ -79,7 +80,7 @@ body.dark {
   position: relative; /* 👈 important */
   flex-shrink: 0;
   margin-bottom: 10px;
-
+  margin-top: 12px;
 }
 
 .editor-card-header {
