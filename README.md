@@ -1,6 +1,6 @@
 #  SQL Query Executor
 
-This is a fully frontend-based SQL Query Executor built as part of the **Atlan Frontend Assignment**. It allows users to run and interact with SQL queries through a intuitively designed web interface. The project uses **React + Vite**, and the embedded editor is powered by [**CodeMirror 6**](https://codemirror.net/6/).
+This is a fully frontend-based SQL Query Executor built as part of the **Atlan Frontend Assignment**. It allows users to run and interact with SQL queries through a intuitively designed web interface on a Desktop. The project uses **React + Vite**, and the embedded editor is powered by [**CodeMirror 6**](https://codemirror.net/6/).
 
 > **Live Site**: [https://sql-editor-aditi.pages.dev/](https://sql-editor-aditi.pages.dev/)
 
@@ -13,7 +13,7 @@ Mock data is used for rendering query results. All dataset samples.
 ---
 
 ## Features
-
+-  **Landing Page for routing to editor and github**
 -  **SQL Editor with Syntax Highlighting**
 -  **Query History with Search**
 -  **Light / Dark Mode Toggle**
@@ -27,7 +27,7 @@ Mock data is used for rendering query results. All dataset samples.
 
 ##  Hosted On
 
-Deployed using **Cloudflare Pages** for fast edge-based content delivery, zero-config SSL, and superior caching.
+Deployed using **Cloudflare Pages** for fast edge-based content delivery, zero-config SSL, and superior caching. Yay for extra security!
 
 ---
 
@@ -45,7 +45,7 @@ Deployed using **Cloudflare Pages** for fast edge-based content delivery, zero-c
 
 ##  Lighthouse Performance
 
-Google Lighthouse and PageSpeed Insights were used for web performance diagnostics and optimization.
+For page time optimisations I have used Google Lighthouse and PageSpeed Insights web performance diagnostics and optimization.
 
 **Lighthouse Scores:**
 
