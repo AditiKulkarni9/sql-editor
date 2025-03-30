@@ -1,94 +1,124 @@
-#  SQL Query Executor
+# SQL Editor – Atlan Frontend Task
 
-This is a fully frontend-based SQL Query Executor built as part of the **Atlan Frontend Assignment**. It allows users to run and interact with SQL queries through a intuitively designed web interface on a Desktop. The project uses **React + Vite**, and the embedded editor is powered by [**CodeMirror 6**](https://codemirror.net/6/).
-
-> **Live Site**: [https://sql-editor-aditi.pages.dev/](https://sql-editor-aditi.pages.dev/)
+🔗 **Live Demo:** [https://sql-editor-aditi.pages.dev](https://sql-editor-aditi.pages.dev)
 
 ---
 
-##  Data
+## Introduction
 
-Mock data is used for rendering query results. All dataset samples.
+This project was developed as a part of the **Atlan Frontend Challenge**. It allows users to run SQL queries on a desktop interface in an intuitive online editor and explore query results across multiple formats.
 
----
-
-## Features
--  **Landing Page for routing to editor and github**
--  **SQL Editor with Syntax Highlighting**
--  **Query History with Search**
--  **Light / Dark Mode Toggle**
--  **Output in Table, Raw JSON, and Metadata Views**
--  **Query Execution Timer**
--  **Export as CSV / JSON**
--  **SQL Copilot (AI-Powered Prompt to SQL)**
--  **Responsive + Accessible UI**
+> **Note**: This is a **frontend-only** application. SQL execution is mocked using predefined queries and local JSON files.
 
 ---
 
-##  Hosted On
+## ⚙️ Features
 
-Deployed using **Cloudflare Pages** for fast edge-based content delivery, zero-config SSL, and superior caching. Yay for extra security!
-
----
-
-##  Stack and Tools Used
-
-| Category       | Tech                      |
-|----------------|---------------------------|
-| Framework      | React + Vite              |
-| Styling        | Custom CSS                |
-| Editor         | CodeMirror 6              |
-| Icons          | React Icons (FontAwesome) |
-| Hosting        | Cloudflare Pages          |
+-  Predefined SQL queries with instant load
+-  Code editor with syntax highlighting (CodeMirror)
+-  Toggleable SQL Copilot assistant (mock)
+-  Output tabs: **Table**, **Raw JSON**, and **Metadata**
+-  Export results as CSV and JSON
+-  Light / Dark mode with toggle and persistence
+-  Query history with localStorage caching
+-  Responsive and accessible interface
 
 ---
 
-##  Lighthouse Performance
+## 📂 Data
 
-For page time optimisations I have used Google Lighthouse and PageSpeed Insights web performance diagnostics and optimization.
-
-**Lighthouse Scores:**
-
-| Metric            | Score    |
-|-------------------|----------|
-| Performance       | 100      |
-| Accessibility     | 92       |
-| Best Practices    | 100      |
-| SEO               | 92       |
-
->  Improvements ongoing for Largest Contentful Paint (LCP) and JavaScript bundle optimizations.
+The dataset used in this app is mock data. Output results for queries are stored as static `.json` files. You can replace them with your own mock data if needed.
 
 ---
 
-## 🔧 Optimization Techniques
+## Performance & Optimization
 
-1. **Preload Critical Assets** – Fonts, themes, and icons are preloaded for faster LCP.
-2. **Lazy Loaded Components** – SQL Copilot and export dropdown are dynamically imported with `React.lazy`.
-3. **Efficient CSS Usage** – Minimized global styles; uses CSS variables and scoped modules.
-4. **Custom Font + Preconnect** – Inter font is loaded via Google Fonts with `<link rel="preconnect">` for speed.
-5. **LocalStorage Debouncing** – Query history updates are optimized to reduce re-renders.
-6. **Reduced Dependencies** – Minimal external libraries to keep JS bundle lean.
+Performance was a key goal in this build. All optimizations were benchmarked using:
+
+- **Lighthouse**
+- **Google PageSpeed Insights**
+- **GTMetrix**
+
+### 📊 Results
+
+| Metric                    | Desktop         | Mobile         |
+|--------------------------|-----------------|----------------|
+| Time to Interactive      | ~0.5s           | ~1.6s          |
+| Largest Contentful Paint | ~820ms          | ~1.4s          |
+| Lighthouse Score         | 90+ Performance | 90+ Accessibility |
+
+---
+
+##  Optimization Techniques
+
+1. **Lazy Loading**  
+   SQL Copilot is lazy-loaded with `React.lazy` and `Suspense`.
+
+2. **Minimal Dependencies**  
+   Only essential libraries like `CodeMirror` and `react-icons` are used.
+
+3. **Responsive Units**  
+   Used `em`, `rem`, `vh`, and `vw` for flexible layout scaling.
+
+4. **Dark Mode Support**  
+   Theme persists with localStorage and updates via a single state toggle.
+
+5. **Accessibility Improvements**  
+   - ARIA labels on interactive elements  
+   - Keyboard-accessible scroll regions  
+   - Sufficient color contrast for text
+
+6. **Cloudflare Pages Hosting**  
+   Leveraged CDN-level caching and edge delivery for improved speed. So yay for extra security
 
 ---
 
-## ♿ Accessibility Improvements
+## Tech Stack
 
-- All interactive components have proper `aria-labels` or `title` attributes.
-- Scrollable areas have `tabIndex="0"` for keyboard focusability.
-- The SQL editor uses `role="textbox"` and supports screen reader access.
+- **React + Vite** – Modern JS framework and build tool
+-  **CodeMirror** – SQL editor integration
+-  **Cloudflare Pages** – Deployment platform
+-  **Vanilla CSS** – No Tailwind or Bootstrap
+
+---
+
+
+## Screenshots
+
+### Landing Page
+![Dark](./src/assets/landingpage.png)
+
+### SQL-Editor
+![Light](./src/assets/editorpage.png)
+
+### Page Loadtime
+![Dark](./src/assets/landingmetrics.png)
+
+![Dark](./src/assets/editormetrics.png)
+---
+
 
 ---
 
-##  Completed Enhancements
+## 🛰 Deployment
 
-- [x] Cloudflare optimized deployment
-- [x] Minified JS + CSS via Vite
-- [x] Font preloading
-- [x] Editor theming (light/dark)
-- [x] Export functionality (CSV + JSON)
-- [x] ARIA and keyboard accessibility
+- Platform: **Cloudflare Pages**
+- Branch: `main`
+- Build Command: `npm run build`
+- Output Directory: `dist`
 
 ---
+
+## 💡 Problem Statement Summary
+
+Create a web-based SQL editor interface that:
+- Supports writing queries on mock data
+- Displays results clearly
+- Prioritizes speed, responsiveness, and UX
+- Is built using a modern JS framework (React in this case)
+
+---
+
 
 ## 🛠️ Local Setup
 
@@ -103,5 +133,11 @@ npm install
 # Start development server
 bun run dev
 
-# Build for production
-bun run build
+## 📬 Contact
+
+**Made with ❤️ by [Aditi]**  
+🔗 GitHub: [github.com/your-username](https://github.com/AditiKulkarni9)  
+🔗 LinkedIn: [linkedin.com/in/your-profile](https://www.linkedin.com/in/aditi-kulkarni-393568229/)
+
+---
+
