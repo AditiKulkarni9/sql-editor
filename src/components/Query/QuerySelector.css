@@ -71,9 +71,14 @@
 
 
 .sidebar-title {
-  font-size: 1.4rem;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 15px;
+  margin-top: 0;
+  line-height: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .search-wrapper {
@@ -102,15 +107,11 @@
   margin-top: 0;
 }
 
-.sidebar-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
 .query-icon {
-  width: 32px;  
-  height: 32px;
+  width: 24px;  
+  height: 24px;
+  margin-right: 10px;
 }
 
 .query-history-container {

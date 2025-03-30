@@ -63,7 +63,8 @@ body.dark {
 
 .editor-header h2 {
   margin: 0;
-  margin-bottom: 0;
+  font-size: 24px;
+  line-height: 40px;
 }
 
 .editor-card {
@@ -280,9 +281,15 @@ body.dark {
 
 .top-right-toggle {
   position: fixed;
-  top: 16px;
-  right: 20px;
+  top: 30px;
+  right: 30px;
   z-index: 999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
 }
 
 .toggle-btn {
@@ -415,6 +422,12 @@ body.dark {
 }
 .app-container.dark .editor-header h2 {
   color: #f1f1f1;
+}
+.editor-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  height: 40px;
 }
 .theme-toggle-icon {
   width: 36px;
