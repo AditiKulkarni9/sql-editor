@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './QuerySelector.css';
-import listIcon from "../../assets/list.svg"
+import { FaClipboardList } from "react-icons/fa";
 
 function QuerySelector({ queries, onChange }) {
   const [search, setSearch] = useState('');
@@ -13,7 +13,7 @@ function QuerySelector({ queries, onChange }) {
     <div className="query-selector">
       <div className="query-header">
         <h1 className="sidebar-title">
-          <img src={listIcon} alt="Query List Icon" className="query-icon" />
+        <FaClipboardList className="query-icon"/>
           Queries
         </h1>
         <div className="search-wrapper">

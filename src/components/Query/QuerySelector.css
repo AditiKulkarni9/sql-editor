@@ -109,10 +109,16 @@
 
 
 .query-icon {
-  width: 24px;  
-  height: 24px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: black; /* light mode default */
 }
+
+.dark .query-icon {
+  color: white; /* dark mode override */
+}
+
 
 .query-history-container {
   margin-top: 0; 
@@ -159,6 +165,17 @@
 
 .clear-history-btn:hover {
   color: #dc2626;
+}
+
+.history-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: black; /* light mode default */
+}
+
+.dark .history-icon {
+  color: white; /* dark mode override */
 }
 
 

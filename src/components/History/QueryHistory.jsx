@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../Query/QuerySelector.css'; 
 import { FaTrash } from 'react-icons/fa';
-
+import { FaHistory } from "react-icons/fa";
 
 function QueryHistory({ queryHistory, onSelect }) {
     console.log("History list:", queryHistory);
@@ -24,6 +24,7 @@ function QueryHistory({ queryHistory, onSelect }) {
     <div className="query-selector query-history-container">
       <div className="query-header">
         <div className="sidebar-title">
+            <FaHistory className="history-icon"/>
             Query History
           <button className="clear-history-btn" onClick={handleClearHistory} title="Clear History">
             <FaTrash />

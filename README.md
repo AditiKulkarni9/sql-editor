@@ -95,6 +95,8 @@ Performance was a key goal in this build. All optimizations were benchmarked usi
 ![Dark](./src/assets/landingmetrics.png)
 
 ![Dark](./src/assets/editormetrics.png)
+
+![Dark](./src/assets/pagespeedins.png)
 ---
 
 
