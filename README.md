@@ -25,7 +25,7 @@ This project was developed as a part of the **Atlan Frontend Challenge**. It all
 
 ---
 
-## 📂 Data
+##  Data
 
 The dataset used in this app is mock data. Output results for queries are stored as static `.json` files. You can replace them with your own mock data if needed.
 
@@ -39,7 +39,7 @@ Performance was a key goal in this build. All optimizations were benchmarked usi
 - **Google PageSpeed Insights**
 - **GTMetrix**
 
-### 📊 Results
+###  Results
 
 | Metric                    | Desktop         | Mobile         |
 |--------------------------|-----------------|----------------|
@@ -100,7 +100,7 @@ Performance was a key goal in this build. All optimizations were benchmarked usi
 
 ---
 
-## 🛰 Deployment
+## Deployment
 
 - Platform: **Cloudflare Pages**
 - Branch: `main`
@@ -120,7 +120,7 @@ Create a web-based SQL editor interface that:
 ---
 
 
-## 🛠️ Local Setup
+##  Local Setup
 
 ```bash
 # Clone the repo
@@ -133,11 +133,11 @@ npm install
 # Start development server
 bun run dev
 
-## 📬 Contact
+##  Contact
 
 **Made with ❤️ by [Aditi]**  
-🔗 GitHub: [github.com/your-username](https://github.com/AditiKulkarni9)  
-🔗 LinkedIn: [linkedin.com/in/your-profile](https://www.linkedin.com/in/aditi-kulkarni-393568229/)
+🔗 GitHub: [github.com/AditiKulkarni9](https://github.com/AditiKulkarni9)  
+🔗 LinkedIn: [linkedin.com/in/aditi-kulkarni-393568229](https://www.linkedin.com/in/aditi-kulkarni-393568229/)
 
 ---
 
