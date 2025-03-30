@@ -6,9 +6,8 @@ import { queries } from './data/queries';
 import { FaPlay, FaSave, FaTrash, FaDownload } from 'react-icons/fa';
 import MetadataView from './components/Results/MetadataView';
 import QueryHistory from './components/History/QueryHistory';
-import LightIcon from './assets/light.svg';
-import DarkIcon from './assets/dark.svg'
 import { FaMagic } from 'react-icons/fa';
+import { Sun, Moon } from 'lucide-react';
 import './App.css';
 
 
@@ -137,12 +136,9 @@ useEffect(() => {
   return (
     <div className={`app-container ${darkMode ? 'dark' : 'light'}`}>
       <div className="top-right-toggle" onClick={() => setDarkMode(prev => !prev)}>
-        <img
-          src={darkMode ? DarkIcon : LightIcon}
-          alt="Toggle Theme"
-          className="theme-toggle-icon"
-        />
+        {darkMode ? <Sun className="theme-toggle-icon" /> : <Moon className="theme-toggle-icon" />}
       </div>
+
 
       <aside className="sidebar">
         <div className="query-section query-selector-wrapper">

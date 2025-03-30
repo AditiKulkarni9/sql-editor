@@ -300,6 +300,7 @@ body.dark {
   background-color: #cbd5e1;
 }
 
+
 .app-container.dark {
   background-color: #1e1e1e;
   color: #f1f1f1;
@@ -416,15 +417,14 @@ body.dark {
   color: #f1f1f1;
 }
 .theme-toggle-icon {
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  width: 36px;
+  height: 36px;
+  color: #111;
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
-.theme-toggle-icon.dark {
-  transform: rotate(180deg);
-  filter: brightness(1.2);
+.app-container.dark .theme-toggle-icon {
+  color: #fff; 
 }
 
 .theme-toggle-icon.light {
@@ -465,6 +465,82 @@ body.dark {
   margin-top: 0.5rem;
   
 }
+
+.app-container .sidebar {
+  background-color: #f5f7fa;
+  color: #111;
+}
+
+.app-container .editor-card {
+  background-color: #ffffff;
+  color: #111;
+  border: 1px solid #e0e0e0;
+}
+
+.app-container .query-card {
+  background-color: #f9f9f9;
+  color: #111;
+  border: 1px solid #ddd;
+}
+.app-container .query-card:hover {
+  background-color: #eaeaea;
+  border-color: #2563eb;
+}
+
+.app-container .query-snippet {
+  color: #555;
+}
+
+.app-container .search-input {
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #ccc;
+}
+.app-container .search-input::placeholder {
+  color: #aaa;
+}
+
+.app-container .main-panel {
+  background-color: #ffffff;
+  color: #111;
+}
+
+.app-container .output-card {
+  background-color: #f8f8f8;
+  color: #111;
+  border: 1px solid #ccc;
+}
+
+.app-container .output-header {
+  background-color: #f9f9f9;
+}
+
+.app-container .editor-subtitle {
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-container .tab-bar {
+  background-color: #eaeaea;
+}
+.app-container .tab-bar button {
+  background-color: #eaeaea;
+  color: #333;
+}
+.app-container .tab-bar button.active {
+  background-color: #ccc;
+  color: #111;
+}
+
+.app-container .toggle-btn {
+  background-color: #e2e8f0;
+  color: #333;
+}
+.app-container .toggle-btn:hover {
+  background-color: #cbd5e1;
+}
+
+
 
 
 
