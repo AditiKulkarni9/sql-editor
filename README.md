@@ -111,6 +111,7 @@ Performance was a key goal in this build. All optimizations were benchmarked usi
 
 ## 💡 Problem Statement Summary
 
+
 Create a web-based SQL editor interface that:
 - Supports writing queries on mock data
 - Displays results clearly
@@ -129,15 +130,17 @@ cd atlan-project
 
 # Install dependencies
 npm install
+#or 
+bun install
 
 # Start development server
 bun run dev
 
 ##  Contact
 
+```
+###
+
 **Made with ❤️ by [Aditi]**  
 🔗 GitHub: [github.com/AditiKulkarni9](https://github.com/AditiKulkarni9)  
 🔗 LinkedIn: [linkedin.com/in/aditi-kulkarni-393568229](https://www.linkedin.com/in/aditi-kulkarni-393568229/)
-
----
-
