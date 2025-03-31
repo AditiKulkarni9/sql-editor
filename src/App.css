@@ -1,4 +1,7 @@
 body {
+  width:100%;
+  overflow-x:hidden;
+  overflow-y:hidden;
   font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
