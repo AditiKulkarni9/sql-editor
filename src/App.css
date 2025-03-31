@@ -592,7 +592,6 @@ body.dark ::-webkit-scrollbar-thumb:hover {
 }
 .query-section {
   flex: 1;
-  overflow-y: auto; 
 }
 .query-scrollable,
 .query-history-list,

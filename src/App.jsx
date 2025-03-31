@@ -77,6 +77,25 @@ useEffect(() => {
     });
   };
   
+  const handleQuerySelection = (query) => {
+    setSelectedQuery(query);
+    setSelectedQueryId(query.id);
+    
+    // Reset the editor content to the selected query's original text
+    setQueryText(query.query);
+    
+    // Remove this query ID from clearedQueryIds if it's there
+    if (clearedQueryIds.includes(query.id)) {
+      setClearedQueryIds(prev => prev.filter(id => id !== query.id));
+    }
+  };
+
+  // New function to handle clearing the query
+  const handleClearQuery = () => {
+    setClearedQueryIds((prev) => [...new Set([...prev, selectedQueryId])]);
+    setQueryText(''); // Clear the editor
+    setShowCopilot(false);
+  };
 
   const handleExportCSV = () => {
     if (!resultData || resultData.length === 0 || !resultData[0]) return;
@@ -125,7 +144,9 @@ useEffect(() => {
       const endTime = performance.now();
       setExecutionTime((endTime - startTime).toFixed(2));
       setExecutedQueryId(selectedQueryId); // just to keep it in sync
-      cleanupQueryById(selectedQueryId);
+      if (clearedQueryIds.includes(selectedQueryId)) {
+        cleanupQueryById(selectedQueryId);
+      }
     } catch (err) {
       console.error('Failed to fetch result:', err);
       setResultData([]);
@@ -150,7 +171,7 @@ useEffect(() => {
 
       <aside className="sidebar">
         <div className="query-section query-selector-wrapper">
-          <QuerySelector queries={queries} onChange={setSelectedQuery} />
+          <QuerySelector queries={queries} onChange={handleQuerySelection} />
         </div>
         
         <div className="query-section query-selector-wrapper">
@@ -190,10 +211,7 @@ useEffect(() => {
               <button 
               className="icon-btn clear-btn" 
               title="Clear" 
-              onClick={() => {
-                setClearedQueryIds((prev) => [...new Set([...prev, selectedQueryId])]);
-                setShowCopilot(false);
-              }}>
+              onClick={handleClearQuery}>
                 <FaTrash />
               </button>
             </div>
