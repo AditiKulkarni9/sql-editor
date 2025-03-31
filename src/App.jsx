@@ -79,7 +79,7 @@ useEffect(() => {
   
 
   const handleExportCSV = () => {
-    if (!resultData || resultData.length === 0) return;
+    if (!resultData || resultData.length === 0 || !resultData[0]) return;
 
     const header = Object.keys(resultData[0]).join(',');
     const rows = resultData.map(row =>
