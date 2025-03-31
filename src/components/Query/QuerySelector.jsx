@@ -35,7 +35,6 @@ function QuerySelector({ queries, onChange }) {
             </li>
           ))}
         </ul>
-  
     </div>
 
   );

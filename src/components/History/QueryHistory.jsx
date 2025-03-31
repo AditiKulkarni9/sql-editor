@@ -42,7 +42,7 @@ function QueryHistory({ queryHistory, onSelect }) {
         </div>
       </div>
 
-      <div  tabIndex="0" role="region" aria-label="Query history scrollable region">
+      <div tabIndex="0" role="region" aria-label="Query history scrollable region">
         <div className="query-history-list" tabIndex="0">
           {filtered.map((query, index) => (
             <div key={index} className="query-card" onClick={() => onSelect(query)}>

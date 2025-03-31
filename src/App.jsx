@@ -19,7 +19,7 @@ function App() {
   const [resultData, setResultData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('table');
-  const [clearEditor, setClearEditor] = useState(false);
+  const [clearedQueryIds, setClearedQueryIds] = useState([]);
   const [showExportMenu, setShowExportMenu] = useState(false);
   const [executionTime, setExecutionTime] = useState(null);
   const [showCopilot, setShowCopilot] = useState(false);
@@ -125,6 +125,7 @@ useEffect(() => {
       const endTime = performance.now();
       setExecutionTime((endTime - startTime).toFixed(2));
       setExecutedQueryId(selectedQueryId); // just to keep it in sync
+      cleanupQueryById(selectedQueryId);
     } catch (err) {
       console.error('Failed to fetch result:', err);
       setResultData([]);
@@ -133,6 +134,12 @@ useEffect(() => {
       setLoading(false);
     }
   };  
+
+  const cleanupQueryById = (id) => {
+    console.log(`Cleaning up after query ID: ${id}`);
+    setClearedQueryIds((prev) => prev.filter(qid => qid !== id));
+  };
+  
 
   return (
     <div className={`app-container ${darkMode ? 'dark' : 'light'}`}>
@@ -146,7 +153,7 @@ useEffect(() => {
           <QuerySelector queries={queries} onChange={setSelectedQuery} />
         </div>
         
-        <div >
+        <div className="query-section query-selector-wrapper">
           <QueryHistory queryHistory={queryHistory} onSelect={setQueryText} />
         </div>
       </aside>
@@ -184,7 +191,7 @@ useEffect(() => {
               className="icon-btn clear-btn" 
               title="Clear" 
               onClick={() => {
-                setClearEditor(prev => !prev)
+                setClearedQueryIds((prev) => [...new Set([...prev, selectedQueryId])]);
                 setShowCopilot(false);
               }}>
                 <FaTrash />
@@ -195,7 +202,7 @@ useEffect(() => {
           <QueryEditor
             query={queryText}
             onChange={(text) => setQueryText(text)}
-            clearTrigger={clearEditor}
+            clearTrigger={clearedQueryIds.includes(selectedQueryId)}
             darkMode={darkMode}
           />
         </div>
