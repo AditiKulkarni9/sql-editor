@@ -145,7 +145,7 @@
 .query-scrollable {
   flex: 1;
   min-height: 0;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding-right: 4px;
   margin-bottom: 0;
 }
