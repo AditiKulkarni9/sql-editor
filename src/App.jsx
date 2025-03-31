@@ -212,7 +212,7 @@ useEffect(() => {
         )}
 
 
-        <div className="output-section">
+        <div >
           <div className="output-header">
             <div className="output-header-top">
             <div className="output-heading-wrapper">
