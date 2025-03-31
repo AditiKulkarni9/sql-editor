@@ -30,7 +30,7 @@ function QuerySelector({ queries, onChange }) {
       <div className="query-scrollable">
         <ul className="query-list">
           {filteredQueries.map((q) => (
-            <li key={q.id} className="query-card" onClick={() => onChange(q.id)}>
+            <li key={q.id} className="query-card" onClick={() => onChange(q)}>
               <div className="query-title">{q.title}</div>
               <div className="query-snippet">{q.query.slice(0, 40)}...</div>
             </li>

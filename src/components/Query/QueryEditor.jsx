@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { sql } from '@codemirror/lang-sql';
 import './QuerySelector.css';
-import { dracula } from '@uiw/codemirror-theme-dracula'; // optional alt
 import { githubLight } from '@uiw/codemirror-theme-github';
 import { oneDark } from '@codemirror/theme-one-dark';
 

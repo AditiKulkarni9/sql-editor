@@ -14,10 +14,11 @@ import './App.css';
 function App() {
   const [selectedQueryId, setSelectedQueryId] = useState(0);
   const [executedQueryId, setExecutedQueryId] = useState(0);
+  const [selectedQuery, setSelectedQuery] = useState(queries[0]);
+  const [queryText, setQueryText] = useState(queries[0].query);
   const [resultData, setResultData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('table');
-  const [queryText, setQueryText] = useState(queries[selectedQueryId].query);
   const [clearEditor, setClearEditor] = useState(false);
   const [showExportMenu, setShowExportMenu] = useState(false);
   const [executionTime, setExecutionTime] = useState(null);
@@ -45,8 +46,8 @@ function App() {
 
 
   useEffect(() => {
-    setQueryText(queries[selectedQueryId].query);
-  }, [selectedQueryId]);
+    setQueryText(selectedQuery.query);
+  }, [selectedQuery]);
 
   const exportRef = useRef(null);
 
@@ -142,7 +143,7 @@ useEffect(() => {
 
       <aside className="sidebar">
         <div className="query-section query-selector-wrapper">
-          <QuerySelector queries={queries} onChange={setSelectedQueryId} />
+          <QuerySelector queries={queries} onChange={setSelectedQuery} />
         </div>
         
         <div className="query-section query-history-wrapper">
