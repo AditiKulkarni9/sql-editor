@@ -146,7 +146,7 @@ useEffect(() => {
           <QuerySelector queries={queries} onChange={setSelectedQuery} />
         </div>
         
-        <div className="query-section query-history-wrapper">
+        <div >
           <QueryHistory queryHistory={queryHistory} onSelect={setQueryText} />
         </div>
       </aside>
